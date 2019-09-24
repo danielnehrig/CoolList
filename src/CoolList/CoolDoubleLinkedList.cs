@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 /// <summary>
 /// CoolList Library namespace
+/// By Daniel und Bjarne
 /// </summary>
 namespace CoolList {
   /// <summary>
