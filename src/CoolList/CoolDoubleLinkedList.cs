@@ -2,7 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
+/// <summary>
+/// CoolList Library namespace
+/// </summary>
 namespace CoolList {
+  /// <summary>
+  /// Double Linked List with enumerator
+  /// </summary>
   public class CoolDoubleLinkedList<T> : IEnumerable<T> {
     protected Node head;
     protected Node current = null;
@@ -37,12 +43,18 @@ namespace CoolList {
       head = null;
     }
 
-    public void AddHead(T t) {
+    /// <summary>
+    /// Add new entry to the List
+    /// </summary>
+    public void Add(T t) {
       Node n = new Node(t);
       n.Next = head;
       head = n;
     }
 
+    /// <summary>
+    /// Find Entry and return Object
+    /// </summary>
     public T Find(Func<T, bool> lamda) {
       Node temp = head;
       T result = default(T);

@@ -18,7 +18,7 @@ namespace Program {
       };
 
       foreach (string name in names) {
-        list.AddHead(new Student(name, i));
+        list.Add(new Student(name, i));
         i++;
       }
 
@@ -40,7 +40,7 @@ namespace Program {
     }
 
     public int CompareTo(Student s) {
-      return id + s.id;
+      return id - s.id;
     }
 
     public override string ToString() {
