@@ -5,8 +5,11 @@
   2. mono or Visual Studio
 
 ## Features
-  1. Add Method
-  2. Lambda Find Method
+  1. Method
+  1. Lambda Find Method
+  1. Length
+  1. IEnum
+  1. Sort
 
 ## Setup
   1. make
