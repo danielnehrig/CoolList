@@ -45,6 +45,23 @@ namespace CoolList {
     }
 
     /// <summary>
+    /// Return the Length of the List
+    /// </summary>
+    public int Length {
+      get {
+        Node temp = head;
+        int count = 0;
+
+        while (temp.next != null) {
+          temp = temp.next;
+          count++;
+        }
+
+        return count;
+      }
+    }
+
+    /// <summary>
     /// Add new entry to the List
     /// </summary>
     public void Add(T t) {
@@ -59,11 +76,11 @@ namespace CoolList {
     public T Find(Func<T, bool> lamda) {
       Node temp = head;
       T result = default(T);
-      while (head.next != null) {
+      while (temp.next != null) {
+        temp = temp.next;
         if (lamda(temp.Data)) {
           result = temp.Data;
         }
-        temp = head.next;
       }  
       return result;
     }

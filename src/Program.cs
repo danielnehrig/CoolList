@@ -17,22 +17,31 @@ namespace Program {
         "Daniel",
       };
 
+      // Add students to List
       foreach (string name in names) {
         list.Add(new Student(name, i));
         i++;
       }
 
+      // IEnum list loop
       foreach (Student student in list) {
         Console.WriteLine(student.ToString());
       }
+
+      // Length Test
+      Console.WriteLine(String.Format("List Length = {0}",list.Length));
+
+      // Find Test
+      Student temp = list.Find(x => 4 == x.id);
+      Console.WriteLine(temp.id);
 
       return 0;
     }
   }
 
   public class Student : IComparable<Student> {
-    string name;
-    int id;
+    public string name;
+    public int id;
 
     public Student(string s, int i) {
       name = s;
