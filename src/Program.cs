@@ -4,7 +4,7 @@ using CoolList;
 namespace Program {
   class Program {
     static int Main(string[] args) {
-      CoolSortedDoubleLinkedList<Student> list = new CoolSortedDoubleLinkedList<Student>();
+      CoolDoubleLinkedList<Student> list = new CoolDoubleLinkedList<Student>();
 
       int i = 0;
       string[] names = new string[] {

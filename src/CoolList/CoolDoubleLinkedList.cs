@@ -10,7 +10,7 @@ namespace CoolList {
   /// <summary>
   /// Double Linked List with enumerator
   /// </summary>
-  public class CoolDoubleLinkedList<T> : IEnumerable<T> {
+  public class CoolDoubleLinkedList<T> : IEnumerable<T> where T : IComparable<T> {
     protected Node head;
     protected Node current = null;
 
@@ -50,7 +50,7 @@ namespace CoolList {
     public int Length {
       get {
         Node temp = head;
-        int count = 0;
+        int count = 1;
 
         while (temp.next != null) {
           temp = temp.next;
@@ -66,8 +66,19 @@ namespace CoolList {
     /// </summary>
     public void Add(T t) {
       Node n = new Node(t);
-      n.Next = head;
-      head = n;
+      if (head == null) {
+        n.Next = head;
+        head = n;
+      } else {
+        Node current = head;
+
+        while (current.Next != null && current.Data.CompareTo(n.Data) < 0) {
+          current = current.Next;
+        }
+
+        n.Next = current;
+        head = n;
+      }
     }
 
     /// <summary>
