@@ -38,6 +38,30 @@ namespace CoolList {
         get { return data; }
         set { data = value; }
       }
+
+      public void Append(Node node) {
+        Node x = this.Next;
+        this.Next = node;
+
+        if (x != null) {
+          x.Prev = node;
+          node.Next = x;
+        }
+
+        node.Prev = this;
+      }
+
+      public void Prepend(Node node) {
+        Node x = this.Prev;
+        this.Prev = node;
+
+        if (x != null) {
+          x.Next = node;
+          node.Prev = x;
+        }
+
+        node.Next = this;
+      }
     }
 
     public CoolDoubleLinkedList() {
@@ -65,19 +89,20 @@ namespace CoolList {
     /// Add new entry to the List
     /// </summary>
     public void Add(T t) {
+      Node current = head;
       Node n = new Node(t);
       if (head == null) {
-        n.Next = head;
         head = n;
       } else {
-        Node current = head;
-
         while (current.Next != null && current.Data.CompareTo(n.Data) < 0) {
           current = current.Next;
         }
 
-        n.Next = current;
-        head = n;
+        if (current.Data.CompareTo(n.Data) < 0) {
+          current.Append(n);
+        } else {
+          current.Prepend(n);
+        }
       }
     }
 
