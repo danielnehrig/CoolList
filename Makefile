@@ -18,3 +18,18 @@ start:
 
 clean:
 	rm -rf $(DISTPATH)*
+
+mono_release: clean dll prog
+	mkdir release_mono
+	cp ./dist/* ./release_mono/
+	tar cvzf release_mono.tar.gz release_mono
+	rm -rf ./release_mono
+
+dotnet_release: clean
+	dotnet build ./CoolList.sln
+	mkdir release_dotnet
+	cp ./dist/* ./release_dotnet/
+	tar cvzf release_dotnet.tar.gz release_dotnet
+	rm -rf ./release_dotnet
+
+release: mono_release
